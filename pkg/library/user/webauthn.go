@@ -11,6 +11,7 @@ import (
 	"github.com/webx-top/echo/code"
 
 	"github.com/admpub/nging/v4/application/dbschema"
+	"github.com/admpub/nging/v4/application/handler"
 	"github.com/admpub/nging/v4/application/model"
 )
 
@@ -20,6 +21,12 @@ type UserHandle struct {
 }
 
 func (u *UserHandle) GetUser(ctx echo.Context, username string, opType cw.Type, stage cw.Stage) (webauthn.User, error) {
+	if opType == cw.TypeRegister {
+		user := handler.User(ctx)
+		if user == nil {
+			return nil, ctx.NewError(code.Unauthenticated, `请先登录`)
+		}
+	}
 	userM := model.NewUser(ctx)
 	err := userM.Get(func(r db.Result) db.Result {
 		return r.Select(`id`, `username`, `avatar`, `disabled`)

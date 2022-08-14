@@ -11,6 +11,7 @@ import (
 	"github.com/webx-top/echo/code"
 
 	"github.com/admpub/webx/application/dbschema"
+	"github.com/admpub/webx/application/middleware/sessdata"
 	modelCustomer "github.com/admpub/webx/application/model/official/customer"
 )
 
@@ -20,6 +21,12 @@ type CustomerHandle struct {
 }
 
 func (u *CustomerHandle) GetUser(ctx echo.Context, username string, opType cw.Type, stage cw.Stage) (webauthn.User, error) {
+	if opType == cw.TypeRegister {
+		customer := sessdata.Customer(ctx)
+		if customer == nil {
+			return nil, ctx.NewError(code.Unauthenticated, `请先登录`)
+		}
+	}
 	m := modelCustomer.NewCustomer(ctx)
 	err := m.Get(func(r db.Result) db.Result {
 		return r.Select(`id`, `name`, `avatar`, `disabled`)
