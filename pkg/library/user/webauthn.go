@@ -98,6 +98,7 @@ func (u *UserHandle) Login(ctx echo.Context, user webauthn.User, cred *webauthn.
 	if err != nil {
 		return err
 	}
-	userM.SetSession()
+	err = userM.FireLoginSuccess()
+	//userM.SetSession()
 	return err
 }

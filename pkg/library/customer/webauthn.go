@@ -46,7 +46,7 @@ func (u *CustomerHandle) GetUser(ctx echo.Context, username string, opType cw.Ty
 	}
 	u2f := dbschema.NewOfficialCustomerU2f(ctx)
 	_, err = u2f.ListByOffset(nil, nil, 0, -1, db.And(
-		db.Cond{`uid`: m.Id},
+		db.Cond{`customer_id`: m.Id},
 		db.Cond{`type`: `webauthn`},
 		db.Cond{`step`: 1},
 	))
@@ -79,7 +79,7 @@ func (u *CustomerHandle) Register(ctx echo.Context, user webauthn.User, cred *we
 		return err
 	}
 	u2fM := modelCustomer.NewU2F(ctx)
-	u2fM.Uid = m.Id
+	u2fM.CustomerId = m.Id
 	u2fM.Token = com.ByteMd5(cred.ID)
 	b, err := json.Marshal(cred)
 	if err != nil {
@@ -98,6 +98,9 @@ func (u *CustomerHandle) Login(ctx echo.Context, user webauthn.User, cred *webau
 	if err != nil {
 		return err
 	}
-	m.SetSession()
+	co := modelCustomer.NewCustomerOptions(m.OfficialCustomer)
+	co.SignInType = `webauthn`
+	err = m.FireSignInSuccess(co, modelCustomer.GenerateOptionsFromHeader(ctx)...)
+	//m.SetSession()
 	return err
 }
