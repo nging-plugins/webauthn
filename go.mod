@@ -12,7 +12,7 @@ require (
 	github.com/admpub/nging/v4 v4.1.5
 	github.com/admpub/webx v0.0.0-00010101000000-000000000000
 	github.com/coscms/webauthn v0.0.1
-	github.com/duo-labs/webauthn v0.0.0-20220330035159-03696f3d4499
+	github.com/duo-labs/webauthn v0.0.0-20220815211337-00c9fb5711f5
 	github.com/webx-top/com v0.6.1
 	github.com/webx-top/db v1.22.2
 	github.com/webx-top/echo v2.26.13+incompatible
@@ -146,7 +146,7 @@ require (
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/muesli/smartcrop v0.3.0 // indirect
 	github.com/nfnt/resize v0.0.0-20180221191011-83c6a9932646 // indirect
-	github.com/nging-plugins/dbmanager v0.6.4 // indirect
+	github.com/nging-plugins/dbmanager v0.7.1 // indirect
 	github.com/olekukonko/tablewriter v0.0.5 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/power-devops/perfstat v0.0.0-20220216144756-c35f1ee13d7c // indirect
