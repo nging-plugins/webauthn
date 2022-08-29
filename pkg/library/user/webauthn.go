@@ -102,3 +102,14 @@ func (u *UserHandle) Login(ctx echo.Context, user webauthn.User, cred *webauthn.
 	//userM.SetSession()
 	return err
 }
+
+func (u *UserHandle) Unbind(ctx echo.Context, user webauthn.User, cred *webauthn.Credential) error {
+	userM := model.NewUser(ctx)
+	err := userM.Get(nil, `username`, user.WebAuthnName())
+	if err != nil {
+		return err
+	}
+	u2fM := model.NewUserU2F(ctx)
+	err = u2fM.Unbind(userM.Id, `webauthn`, 1)
+	return err
+}
