@@ -21,10 +21,13 @@ type UserHandle struct {
 }
 
 func (u *UserHandle) GetUser(ctx echo.Context, username string, opType cw.Type, stage cw.Stage) (webauthn.User, error) {
-	if opType == cw.TypeRegister {
+	if opType == cw.TypeRegister || opType == cw.TypeUnbind {
 		user := handler.User(ctx)
 		if user == nil {
 			return nil, ctx.NewError(code.Unauthenticated, `请先登录`)
+		}
+		if username != user.Username {
+			return nil, ctx.NewError(code.NonPrivileged, `用户名不匹配`)
 		}
 	}
 	userM := model.NewUser(ctx)
