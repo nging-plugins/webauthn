@@ -8,9 +8,11 @@ import (
 	"github.com/duo-labs/webauthn/webauthn"
 	"github.com/webx-top/echo"
 	"github.com/webx-top/echo/handler/embed"
+	"github.com/webx-top/echo/param"
 
 	"github.com/admpub/nging/v4/application/cmd/bootconfig"
 	"github.com/admpub/nging/v4/application/library/common"
+	"github.com/admpub/nging/v4/application/library/config"
 )
 
 var global = cw.New(handle)
@@ -28,6 +30,9 @@ func Register(r echo.RouteRegister) {
 
 	// init webauthn
 	backendURL := common.BackendURL(nil)
+	if len(backendURL) == 0 {
+		backendURL = `http://localhost:` + param.AsString(config.FromCLI().Port)
+	}
 	icon := backendURL + `/public/assets/backend/images/logo.png`
 	u, _ := url.Parse(backendURL)
 	Init(&webauthn.Config{

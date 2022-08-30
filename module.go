@@ -18,7 +18,7 @@ var Module = module.Module{
 	AssetsPath: []string{},
 	//Navigate: ,
 	Route: func(r *route.Collection) {
-		user.Register(r.Backend.Echo())
+		user.Register(r.Backend.Echo().Group(`/user`))
 		backend.Register(r.Backend.Echo())
 		//customer.Register(r.Frontend.Echo())
 	},
