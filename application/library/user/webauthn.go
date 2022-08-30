@@ -13,6 +13,7 @@ import (
 	"github.com/admpub/nging/v4/application/dbschema"
 	"github.com/admpub/nging/v4/application/handler"
 	"github.com/admpub/nging/v4/application/model"
+	"github.com/nging-plugins/webauthn/application/library/common"
 )
 
 var handle cw.UserHandler = &UserHandle{}
@@ -66,6 +67,10 @@ func (u *UserHandle) GetUser(ctx echo.Context, username string, opType cw.Type, 
 		}
 		user.Credentials[index] = cred
 	}
+	if opType == cw.TypeUnbind && stage == cw.StageBegin {
+		unbind := ctx.Form(`unbind`)
+		ctx.Session().Set(`webauthn.unbind`, unbind)
+	}
 	return user, nil
 }
 
@@ -84,6 +89,7 @@ func (u *UserHandle) Register(ctx echo.Context, user webauthn.User, cred *webaut
 	u2fM := model.NewUserU2F(ctx)
 	u2fM.Uid = userM.Id
 	u2fM.Token = com.ByteMd5(cred.ID)
+	u2fM.Name = common.GetOS(ctx.Request().UserAgent())
 	b, err := json.Marshal(cred)
 	if err != nil {
 		return err
@@ -113,6 +119,10 @@ func (u *UserHandle) Unbind(ctx echo.Context, user webauthn.User, cred *webauthn
 		return err
 	}
 	u2fM := model.NewUserU2F(ctx)
-	err = u2fM.Unbind(userM.Id, `webauthn`, 1)
+	unbind, _ := ctx.Session().Get(`webauthn.unbind`).(string)
+	err = u2fM.UnbindByToken(userM.Id, `webauthn`, 1, unbind)
+	if err == nil {
+		ctx.Session().Delete(`webauthn.unbind`)
+	}
 	return err
 }

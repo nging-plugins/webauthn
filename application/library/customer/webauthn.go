@@ -13,6 +13,7 @@ import (
 	"github.com/admpub/webx/application/dbschema"
 	"github.com/admpub/webx/application/middleware/sessdata"
 	modelCustomer "github.com/admpub/webx/application/model/official/customer"
+	"github.com/nging-plugins/webauthn/application/library/common"
 )
 
 var handle cw.UserHandler = &CustomerHandle{}
@@ -66,6 +67,10 @@ func (u *CustomerHandle) GetUser(ctx echo.Context, username string, opType cw.Ty
 		}
 		user.Credentials[index] = cred
 	}
+	if opType == cw.TypeUnbind && stage == cw.StageBegin {
+		unbind := ctx.Form(`unbind`)
+		ctx.Session().Set(`webauthn.unbind`, unbind)
+	}
 	return user, nil
 }
 
@@ -84,6 +89,7 @@ func (u *CustomerHandle) Register(ctx echo.Context, user webauthn.User, cred *we
 	u2fM := modelCustomer.NewU2F(ctx)
 	u2fM.CustomerId = m.Id
 	u2fM.Token = com.ByteMd5(cred.ID)
+	u2fM.Name = common.GetOS(ctx.Request().UserAgent())
 	b, err := json.Marshal(cred)
 	if err != nil {
 		return err
@@ -115,6 +121,10 @@ func (u *CustomerHandle) Unbind(ctx echo.Context, user webauthn.User, cred *weba
 		return err
 	}
 	u2fM := modelCustomer.NewU2F(ctx)
-	err = u2fM.Unbind(m.Id, `webauthn`, 1)
+	unbind, _ := ctx.Session().Get(`webauthn.unbind`).(string)
+	err = u2fM.UnbindByToken(m.Id, `webauthn`, 1, unbind)
+	if err == nil {
+		ctx.Session().Delete(`webauthn.unbind`)
+	}
 	return err
 }
