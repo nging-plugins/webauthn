@@ -4,14 +4,13 @@ go 1.19
 
 replace github.com/admpub/nging/v4 => ../../admpub/nging
 
-replace github.com/admpub/webx => ../../admpub/webx
+//replace github.com/admpub/webx => ../../admpub/webx
 
 replace github.com/coscms/webauthn => ../../coscms/webauthn
 
 require (
 	github.com/admpub/nging/v4 v4.1.5
 	github.com/admpub/useragent v0.0.1
-	github.com/admpub/webx v0.0.0-00010101000000-000000000000
 	github.com/coscms/webauthn v0.1.2
 	github.com/duo-labs/webauthn v0.0.0-20220815211337-00c9fb5711f5
 	github.com/webx-top/com v0.6.1
@@ -21,8 +20,8 @@ require (
 
 require (
 	cloud.google.com/go/compute v1.7.0 // indirect
+	github.com/BurntSushi/toml v0.4.1 // indirect
 	github.com/abh/errorutil v0.0.0-20130729183701-f9bd360d00b9 // indirect
-	github.com/admpub/cache v0.3.6 // indirect
 	github.com/admpub/ccs-gm v0.0.3 // indirect
 	github.com/admpub/checksum v1.0.1 // indirect
 	github.com/admpub/color v1.8.0 // indirect
@@ -34,14 +33,11 @@ require (
 	github.com/admpub/errors v0.8.2 // indirect
 	github.com/admpub/events v1.3.5 // indirect
 	github.com/admpub/fasthttp v0.0.5 // indirect
-	github.com/admpub/fasttemplate v0.0.2 // indirect
 	github.com/admpub/fsnotify v1.5.0 // indirect
 	github.com/admpub/gifresize v1.0.2 // indirect
 	github.com/admpub/go-bindata-assetfs v0.0.0-20170428090253-36eaa4c19588 // indirect
 	github.com/admpub/go-download/v2 v2.1.12 // indirect
-	github.com/admpub/go-hashids v2.0.1+incompatible // indirect
 	github.com/admpub/go-isatty v0.0.10 // indirect
-	github.com/admpub/go-lock v1.3.0 // indirect
 	github.com/admpub/go-password v0.1.3 // indirect
 	github.com/admpub/go-pretty/v6 v6.0.3 // indirect
 	github.com/admpub/go-reuseport v0.0.4 // indirect
@@ -52,7 +48,6 @@ require (
 	github.com/admpub/identicon v1.0.2 // indirect
 	github.com/admpub/imageproxy v0.9.3 // indirect
 	github.com/admpub/imaging v1.5.0 // indirect
-	github.com/admpub/ini v1.38.2 // indirect
 	github.com/admpub/ip2region/v2 v2.0.1 // indirect
 	github.com/admpub/json5 v0.0.1 // indirect
 	github.com/admpub/license_gen v0.1.0 // indirect
@@ -64,11 +59,9 @@ require (
 	github.com/admpub/null v8.0.4+incompatible // indirect
 	github.com/admpub/once v0.0.1 // indirect
 	github.com/admpub/pester v0.0.0-20200411024648-005672a2bd48 // indirect
-	github.com/admpub/pinyin-golang v1.0.1 // indirect
 	github.com/admpub/randomize v0.0.2 // indirect
 	github.com/admpub/realip v0.0.0-20210421084339-374cf5df122d // indirect
 	github.com/admpub/redistore v1.2.1 // indirect
-	github.com/admpub/redsync/v4 v4.0.3 // indirect
 	github.com/admpub/resty/v2 v2.7.0 // indirect
 	github.com/admpub/securecookie v1.1.2 // indirect
 	github.com/admpub/service v0.0.4 // indirect
@@ -80,7 +73,6 @@ require (
 	github.com/aymerick/douceur v0.2.0 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/bgentry/speakeasy v0.1.0 // indirect
-	github.com/bradfitz/gomemcache v0.0.0-20220106215444-fb4bf637b56d // indirect
 	github.com/census-instrumentation/opencensus-proto v0.3.0 // indirect
 	github.com/cespare/xxhash/v2 v2.1.2 // indirect
 	github.com/cloudflare/cfssl v1.6.1 // indirect
@@ -108,7 +100,6 @@ require (
 	github.com/goccy/go-json v0.9.11 // indirect
 	github.com/gofrs/uuid v4.2.0+incompatible // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
-	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
 	github.com/golang-jwt/jwt/v4 v4.4.2 // indirect
 	github.com/golang/freetype v0.0.0-20170609003504-e2365dfdc4a0 // indirect
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
@@ -119,23 +110,17 @@ require (
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/gorilla/css v1.0.0 // indirect
 	github.com/gorilla/websocket v1.5.0 // indirect
-	github.com/gosimple/slug v1.12.0 // indirect
-	github.com/gosimple/unidecode v1.0.1 // indirect
 	github.com/gregjones/httpcache v0.0.0-20190611155906-901d90724c79 // indirect
 	github.com/grpc-ecosystem/go-grpc-middleware v1.3.0 // indirect
 	github.com/grpc-ecosystem/go-grpc-prometheus v1.2.0 // indirect
 	github.com/grpc-ecosystem/grpc-gateway v1.16.0 // indirect
 	github.com/h2non/filetype v1.1.3 // indirect
-	github.com/hashicorp/errwrap v1.1.0 // indirect
-	github.com/hashicorp/go-multierror v1.1.1 // indirect
 	github.com/inconshreveable/mousetrap v1.0.1 // indirect
 	github.com/jhump/protoreflect v1.8.2 // indirect
 	github.com/jonboulle/clockwork v0.2.2 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/klauspost/compress v1.15.9 // indirect
 	github.com/lufia/plan9stats v0.0.0-20220517141722-cf486979b281 // indirect
-	github.com/markbates/goth v1.73.0 // indirect
-	github.com/martinlindhe/base36 v1.1.1 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.16 // indirect
 	github.com/mattn/go-runewidth v0.0.13 // indirect
@@ -147,7 +132,6 @@ require (
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/muesli/smartcrop v0.3.0 // indirect
 	github.com/nfnt/resize v0.0.0-20180221191011-83c6a9932646 // indirect
-	github.com/nging-plugins/dbmanager v0.8.0 // indirect
 	github.com/olekukonko/tablewriter v0.0.5 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/power-devops/perfstat v0.0.0-20220216144756-c35f1ee13d7c // indirect
@@ -214,7 +198,6 @@ require (
 	google.golang.org/grpc v1.49.0 // indirect
 	google.golang.org/protobuf v1.28.1 // indirect
 	gopkg.in/cheggaaa/pb.v1 v1.0.28 // indirect
-	gopkg.in/redis.v5 v5.2.9 // indirect
 	gopkg.in/tomb.v1 v1.0.0-20141024135613-dd632973f1e7 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	sigs.k8s.io/yaml v1.2.0 // indirect
