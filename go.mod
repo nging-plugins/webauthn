@@ -20,7 +20,6 @@ require (
 
 require (
 	cloud.google.com/go/compute v1.7.0 // indirect
-	github.com/BurntSushi/toml v0.4.1 // indirect
 	github.com/abh/errorutil v0.0.0-20130729183701-f9bd360d00b9 // indirect
 	github.com/admpub/ccs-gm v0.0.3 // indirect
 	github.com/admpub/checksum v1.0.1 // indirect
@@ -77,7 +76,7 @@ require (
 	github.com/cespare/xxhash/v2 v2.1.2 // indirect
 	github.com/cloudflare/cfssl v1.6.1 // indirect
 	github.com/cncf/udpa/go v0.0.0-20210930031921-04548b0d99d4 // indirect
-	github.com/cncf/xds/go v0.0.0-20211011173535-cb28da3451f1 // indirect
+	github.com/cncf/xds/go v0.0.0-20211130200136-a8f946100490 // indirect
 	github.com/coreos/go-semver v0.3.0 // indirect
 	github.com/coreos/go-systemd/v22 v22.3.2 // indirect
 	github.com/coscms/forms v1.10.0 // indirect
@@ -86,7 +85,7 @@ require (
 	github.com/dsoprea/go-logging v0.0.0-20200710184922-b02d349568dd // indirect
 	github.com/dustin/go-humanize v1.0.0 // indirect
 	github.com/envoyproxy/go-control-plane v0.10.2-0.20220325020618-49ff273808a1 // indirect
-	github.com/envoyproxy/protoc-gen-validate v0.6.1 // indirect
+	github.com/envoyproxy/protoc-gen-validate v0.6.2 // indirect
 	github.com/fcjr/aia-transport-go v1.2.2 // indirect
 	github.com/form3tech-oss/jwt-go v3.2.3+incompatible // indirect
 	github.com/francoispqt/gojay v1.2.13 // indirect
@@ -127,7 +126,7 @@ require (
 	github.com/matttproud/golang_protobuf_extensions v1.0.1 // indirect
 	github.com/microcosm-cc/bluemonday v1.0.19 // indirect
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
-	github.com/mitchellh/mapstructure v1.1.2 // indirect
+	github.com/mitchellh/mapstructure v1.4.3 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/muesli/smartcrop v0.3.0 // indirect
@@ -170,8 +169,9 @@ require (
 	github.com/xiang90/probing v0.0.0-20190116061207-43a291ad63a2 // indirect
 	github.com/yusufpapurcu/wmi v1.2.2 // indirect
 	go.etcd.io/bbolt v1.3.5 // indirect
-	go.etcd.io/etcd/api/v3 v3.5.0-alpha.0 // indirect
-	go.etcd.io/etcd/client/v2 v2.305.0-alpha.0 // indirect
+	go.etcd.io/etcd/api/v3 v3.5.1 // indirect
+	go.etcd.io/etcd/client/pkg/v3 v3.5.1 // indirect
+	go.etcd.io/etcd/client/v2 v2.305.1 // indirect
 	go.etcd.io/etcd/client/v3 v3.5.0-alpha.0 // indirect
 	go.etcd.io/etcd/etcdctl/v3 v3.5.0-alpha.0 // indirect
 	go.etcd.io/etcd/pkg/v3 v3.5.0-alpha.0 // indirect
@@ -179,9 +179,9 @@ require (
 	go.etcd.io/etcd/server/v3 v3.5.0-alpha.0 // indirect
 	go.etcd.io/etcd/tests/v3 v3.5.0-alpha.0 // indirect
 	go.etcd.io/etcd/v3 v3.5.0-alpha.0 // indirect
-	go.uber.org/atomic v1.7.0 // indirect
-	go.uber.org/multierr v1.7.0 // indirect
-	go.uber.org/zap v1.16.0 // indirect
+	go.uber.org/atomic v1.9.0 // indirect
+	go.uber.org/multierr v1.8.0 // indirect
+	go.uber.org/zap v1.21.0 // indirect
 	golang.org/x/crypto v0.0.0-20220824171710-5757bc0c5503 // indirect
 	golang.org/x/image v0.0.0-20220722155232-062f8c9fd539 // indirect
 	golang.org/x/mod v0.6.0-dev.0.20220419223038-86c51ed26bb4 // indirect
