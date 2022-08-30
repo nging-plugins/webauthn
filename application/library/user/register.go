@@ -7,6 +7,7 @@ import (
 	cw "github.com/coscms/webauthn"
 	"github.com/coscms/webauthn/static"
 	"github.com/duo-labs/webauthn/webauthn"
+	"github.com/webx-top/com"
 	"github.com/webx-top/echo"
 	"github.com/webx-top/echo/handler/embed"
 	"github.com/webx-top/echo/param"
@@ -33,7 +34,7 @@ func initWebAuthn(ctx echo.Context) *webauthn.Config {
 	u, _ := url.Parse(backendURL)
 	cfg := &webauthn.Config{
 		RPDisplayName: bootconfig.SoftwareName, // Display Name for your site
-		RPID:          u.Host,                  // Generally the domain name for your site
+		RPID:          com.SplitHost(u.Host),   // Generally the domain name for your site
 		RPOrigin:      backendURL,              // The origin URL for WebAuthn requests
 		RPIcon:        icon,                    // Optional icon URL for your site
 	}
