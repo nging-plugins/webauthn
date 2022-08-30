@@ -69,7 +69,7 @@ func (u *CustomerHandle) GetUser(ctx echo.Context, username string, opType cw.Ty
 	}
 	if opType == cw.TypeUnbind && stage == cw.StageBegin {
 		unbind := ctx.Form(`unbind`)
-		ctx.Session().Set(`webauthn.unbind`, unbind)
+		ctx.Session().Set(common.SessionKeyUnbindToken, unbind)
 	}
 	return user, nil
 }
@@ -121,10 +121,10 @@ func (u *CustomerHandle) Unbind(ctx echo.Context, user webauthn.User, cred *weba
 		return err
 	}
 	u2fM := modelCustomer.NewU2F(ctx)
-	unbind, _ := ctx.Session().Get(`webauthn.unbind`).(string)
+	unbind, _ := ctx.Session().Get(common.SessionKeyUnbindToken).(string)
 	err = u2fM.UnbindByToken(m.Id, `webauthn`, 1, unbind)
 	if err == nil {
-		ctx.Session().Delete(`webauthn.unbind`)
+		ctx.Session().Delete(common.SessionKeyUnbindToken)
 	}
 	return err
 }
