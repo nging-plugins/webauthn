@@ -9,9 +9,10 @@ replace github.com/admpub/nging/v4 => ../../admpub/nging
 replace github.com/coscms/webauthn => ../../coscms/webauthn
 
 require (
+	github.com/admpub/log v1.3.3
 	github.com/admpub/nging/v4 v4.1.5
 	github.com/admpub/useragent v0.0.1
-	github.com/coscms/webauthn v0.1.2
+	github.com/coscms/webauthn v0.1.3
 	github.com/duo-labs/webauthn v0.0.0-20220815211337-00c9fb5711f5
 	github.com/webx-top/com v0.6.1
 	github.com/webx-top/db v1.22.2
@@ -50,7 +51,6 @@ require (
 	github.com/admpub/ip2region/v2 v2.0.1 // indirect
 	github.com/admpub/json5 v0.0.1 // indirect
 	github.com/admpub/license_gen v0.1.0 // indirect
-	github.com/admpub/log v1.3.3 // indirect
 	github.com/admpub/mahonia v0.0.0-20151019004008-c528b747d92d // indirect
 	github.com/admpub/mail v0.0.0-20170408110349-d63147b0317b // indirect
 	github.com/admpub/marmot v0.0.0-20200702042226-2170d9ff59f5 // indirect
