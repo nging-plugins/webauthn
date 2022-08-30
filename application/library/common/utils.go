@@ -1,10 +1,10 @@
 package common
 
 import (
-	"github.com/admpub/useragent"
+	ua "github.com/admpub/useragent"
 )
 
 func GetOS(userAgent string) string {
-	infoUA := useragent.Parse(userAgent)
+	infoUA := ua.Parse(userAgent)
 	return infoUA.OS
 }
