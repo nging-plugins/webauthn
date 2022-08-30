@@ -4,8 +4,8 @@ import (
 	"github.com/admpub/nging/v4/application/library/module"
 	"github.com/admpub/nging/v4/application/library/route"
 
-	"github.com/nging-plugins/webauthn/pkg/library/customer"
-	"github.com/nging-plugins/webauthn/pkg/library/user"
+	"github.com/nging-plugins/webauthn/application/library/customer"
+	"github.com/nging-plugins/webauthn/application/library/user"
 )
 
 const ID = `webauthn`
