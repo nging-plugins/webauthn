@@ -19,5 +19,7 @@ func WebAuthn(ctx echo.Context) error {
 		return err
 	}
 	ctx.Set(`listData`, m.Objects())
+	ctx.Set(`activeSafeItem`, `webauthn`)
+	ctx.Set(`safeItems`, model.SafeItems.Slice())
 	return ctx.Render(`webauthn/user`, handler.Err(ctx, err))
 }
