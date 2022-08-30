@@ -19,5 +19,5 @@ func WebAuthn(ctx echo.Context) error {
 		return err
 	}
 	ctx.Set(`listData`, m.Objects())
-	return ctx.Render(`user/webauthn`, handler.Err(ctx, err))
+	return ctx.Render(`webauthn/user`, handler.Err(ctx, err))
 }
