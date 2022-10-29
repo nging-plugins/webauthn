@@ -1,8 +1,8 @@
 {{Strip}}{{Extend "layout"}}
-{{Block "title"}}{{"免密登录"|T}}{{/Block}}
+{{Block "title"}}{{"免密登录"|$.T}}{{/Block}}
 {{Block "breadcrumb"}}
 {{Super}}
-<li class="active">{{"免密登录"|T}}</li>
+<li class="active">{{"免密登录"|$.T}}</li>
 {{/Block}}
 
 {{Block "bodyNav"}}
@@ -16,34 +16,34 @@
 			<div class="header">
 				<a href="javascript:;" onclick="webAuthnRegister()" class="btn btn-success pull-right">
 					<i class="fa fa-plus"></i>
-					{{"添加"|T}}
+					{{"添加"|$.T}}
 				</a>
-				<h3>{{"免密登录"|T}}</h3>
+				<h3>{{"免密登录"|$.T}}</h3>
 			</div>
 			<div class="content">
 				<div class="table-responsive">
 				<table class="table no-border hover">
 					<thead class="no-border">
 						<tr>
-							<th><strong>{{"系统平台"|T}}</strong></th>
-							<th style="width:170px"><strong>{{"绑定时间"|T}}</strong></th>
-							<th style="width:72px"><strong>{{"操作"|T}}</strong></th>
+							<th><strong>{{"系统平台"|$.T}}</strong></th>
+							<th style="width:170px"><strong>{{"绑定时间"|$.T}}</strong></th>
+							<th style="width:72px"><strong>{{"操作"|$.T}}</strong></th>
 						</tr>
 					</thead>
 					<tbody class="no-border-y">
-                        {{- range $k,$v := Stored.listData}}
+                        {{- range $k,$v := $.Stored.listData}}
 						<tr>
 							<td>{{$v.Name}}</td>
 							<td>{{(Date $v.Created).Format "2006-01-02 15:04:05" -}}</td>
 							<td class="label-group">
-								<a class="label label-danger" href="javascript:;" title="{{`解绑`|T}}" data-toggle="tooltip" onclick="webAuthnUnbind('{{$v.Token}}')"><i class="fa fa-unlink"></i></a>
+								<a class="label label-danger" href="javascript:;" title="{{`解绑`|$.T}}" data-toggle="tooltip" onclick="webAuthnUnbind('{{$v.Token}}')"><i class="fa fa-unlink"></i></a>
 							</td>
 						</tr>
                         {{end -}}
 					</tbody>
 				</table>		
 				</div>
-				{{Stored.pagination.Render}}
+				{{$.Stored.pagination.Render}}
 			</div>
 		</div>				
 	</div>
@@ -52,7 +52,7 @@
 {{Block "footer"}}
 <script src="{{BackendURL}}/user/webauthn/static/webauthn.min.js"></script>
 <script>
-var username = '{{Username}}', unbindtoken = '';
+var username = '{{call $.Func.Username}}', unbindtoken = '';
 var webAuthn = new WebAuthn({
 	urlPrefix: '/user/webauthn',
 	getUnbindData: function() {

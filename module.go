@@ -1,8 +1,8 @@
 package webauthn
 
 import (
-	"github.com/admpub/nging/v4/application/library/module"
-	"github.com/admpub/nging/v4/application/library/route"
+	"github.com/admpub/nging/v5/application/library/module"
+	"github.com/admpub/nging/v5/application/library/route"
 
 	"github.com/nging-plugins/webauthn/application/handler/backend"
 	//"github.com/nging-plugins/webauthn/application/library/customer"
