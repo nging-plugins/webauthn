@@ -167,7 +167,7 @@ require (
 	github.com/webx-top/restyclient v0.0.2 // indirect
 	github.com/webx-top/tagfast v0.0.0-20161020041435-9a2065ce3dd2 // indirect
 	github.com/webx-top/validation v0.0.3 // indirect
-	github.com/webx-top/validator v0.1.2 // indirect
+	github.com/webx-top/validator v0.2.0 // indirect
 	github.com/x448/float16 v0.8.4 // indirect
 	github.com/xiang90/probing v0.0.0-20190116061207-43a291ad63a2 // indirect
 	github.com/yusufpapurcu/wmi v1.2.2 // indirect
