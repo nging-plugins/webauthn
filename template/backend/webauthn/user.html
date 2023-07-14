@@ -58,14 +58,23 @@ var webAuthn = new WebAuthn({
 	getUnbindData: function() {
 		return {"unbind":unbindtoken};
 	},
-	onRegisterSuccess: function (response) {window.location.reload()},
-    onLoginSuccess: function (response) {window.location.reload()},
-    onUnbindSuccess: function (response) {window.setTimeout(function(){window.location.reload()},1000);},
+	onRegisterSuccess: function (response) {
+		App.message({'text':App.t('添加成功'),'type':'success'});
+		window.setTimeout(function(){window.location.reload()},2000);
+	},
+    onLoginSuccess: function (response) {
+		App.message({'text':App.t('登录成功'),'type':'success'});
+		window.setTimeout(function(){window.location.reload()},2000);
+	},
+    onUnbindSuccess: function (response) {
+		App.message({'text':App.t('解绑成功'),'type':'success'});
+		window.setTimeout(function(){window.location.reload()},2000);
+	},
 	debug:false
 });
 function webAuthnRegister() {
 	if(window.location.protocol!='https:'||!webAuthn.check()){
-		App.message({"text":"{{`此项功能仅在一些支持的浏览器的安全上下文（HTTPS）中可用`|$.T}}","type":"error"});
+		App.message({'text':App.t('此项功能仅在一些支持的浏览器的安全上下文（HTTPS）中可用'),'type':'error'});
 		return;
 	}
     webAuthn.register(username);
