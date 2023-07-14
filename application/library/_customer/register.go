@@ -41,8 +41,16 @@ func initWebAuthn(ctx echo.Context) *webauthn.Config {
 	return cfg
 }
 
-func Register(r echo.RouteRegister) {
+func RegisterFrontend(r echo.RouteRegister) {
 	global.RegisterRoute(r)
+	fs := embed.NewFileSystems()
+	fs.Register(static.JS)
+	g := r.Group(`/webauthn`)
+	g.Get(`/static/*`, embed.File(fs))
+}
+
+func RegisterLogin(r echo.RouteRegister) {
+	global.RegisterRouteForLogin(r)
 	fs := embed.NewFileSystems()
 	fs.Register(static.JS)
 	g := r.Group(`/webauthn`)

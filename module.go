@@ -18,9 +18,11 @@ var Module = module.Module{
 	AssetsPath: []string{},
 	//Navigate: ,
 	Route: func(r *route.Collection) {
-		user.Register(r.Backend.Echo().Group(`/user`))
+		user.RegisterBackend(r.Backend.Echo().Group(`/user`))
+		user.RegisterLogin(r.Backend.Echo())
 		backend.Register(r.Backend.Echo())
-		//customer.Register(r.Frontend.Echo())
+		//customer.RegisterFrontend(r.Frontend.Echo())
+		//customer.RegisterLogin(r.Frontend.Echo())
 	},
 	DBSchemaVer: 0.0000,
 }
