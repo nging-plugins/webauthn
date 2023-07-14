@@ -58,6 +58,10 @@ func (u *UserHandle) GetUser(ctx echo.Context, username string, opType cw.Type, 
 		return nil, err
 	}
 	u2fList := u2f.Objects()
+	if len(u2fList) == 0 {
+		err = ctx.NewError(code.Unsupported, `该用户不支持免密登录`)
+		return nil, err
+	}
 	user.Credentials = make([]webauthn.Credential, len(u2fList))
 	for index, row := range u2fList {
 		cred := webauthn.Credential{}

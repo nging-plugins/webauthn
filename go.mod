@@ -12,7 +12,7 @@ require (
 	github.com/admpub/log v1.3.4
 	github.com/admpub/nging/v5 v5.0.0
 	github.com/admpub/useragent v0.0.1
-	github.com/coscms/webauthn v0.2.6
+	github.com/coscms/webauthn v0.2.7
 	github.com/go-webauthn/webauthn v0.8.4
 	github.com/webx-top/com v0.9.5
 	github.com/webx-top/db v1.24.3
