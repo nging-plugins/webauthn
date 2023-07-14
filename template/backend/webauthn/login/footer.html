@@ -11,7 +11,7 @@ var webAuthn = new WebAuthn({
         if(error=='OperationError: The operation failed for an operation-specific reason'){
             return;
         }
-		App.message({'text':error,'type':'error'});
+		App.message({'text':typeof error.message != 'undefined'?error.message:error,'type':'error'});
     },
 	debug:false
 });

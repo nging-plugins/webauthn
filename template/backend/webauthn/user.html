@@ -62,6 +62,12 @@ var webAuthn = new WebAuthn({
 		App.message({'text':App.t('添加成功'),'type':'success'});
 		window.setTimeout(function(){window.location.reload()},2000);
 	},
+    onRegisterError: function (error) {
+        if(error=='OperationError: The operation failed for an operation-specific reason'){
+            return;
+        }
+		App.message({'text':typeof error.message != 'undefined'?error.message:error,'type':'error'});
+    },
     onLoginSuccess: function (response) {
 		App.message({'text':App.t('登录成功'),'type':'success'});
 		window.setTimeout(function(){window.location.reload()},2000);
@@ -69,6 +75,9 @@ var webAuthn = new WebAuthn({
     onUnbindSuccess: function (response) {
 		App.message({'text':App.t('解绑成功'),'type':'success'});
 		window.setTimeout(function(){window.location.reload()},2000);
+	},
+    onUnbindError: function (error) {
+		App.message({'text':typeof error.message != 'undefined'?error.message:error,'type':'error'});
 	},
 	debug:false
 });
