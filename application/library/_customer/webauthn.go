@@ -36,6 +36,9 @@ func (u *CustomerHandle) GetUser(ctx echo.Context, username string, opType cw.Ty
 		return r.Select(`id`, `name`, `avatar`, `disabled`)
 	}, `name`, username)
 	if err != nil {
+		if err == db.ErrNoMoreRows {
+			err = ctx.NewError(code.UserNotFound, `用户不存在`).SetZone(`username`)
+		}
 		return nil, err
 	}
 	if m.Disabled == `Y` {
