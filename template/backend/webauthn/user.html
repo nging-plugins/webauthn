@@ -61,10 +61,14 @@ var webAuthn = new WebAuthn({
 	onRegisterSuccess: function (response) {window.location.reload()},
     onLoginSuccess: function (response) {window.location.reload()},
     onUnbindSuccess: function (response) {window.location.reload()},
-	debug:true
+	debug:false
 });
 function webAuthnRegister() {
-    webAuthn.check() && webAuthn.register(username);
+	if(window.location.protocol!='https:'||!webAuthn.check()){
+		App.message({"text":"{{`此项功能仅在一些支持的浏览器的安全上下文（HTTPS）中可用`|$.T}}","type":"error"});
+		return;
+	}
+    webAuthn.register(username);
 }
 function webAuthnLogin() {
     webAuthn.check() && webAuthn.login(username);
