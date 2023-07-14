@@ -5,5 +5,7 @@ import (
 )
 
 func init() {
-	model.SafeItems.Add(`webauthn`, `免密登录`)
+	model.RegisterSafeItem(`webauthn`, `免密登录`, model.SafeItemInfo{
+		Step: 1, ConfigTitle: `免密登录`, ConfigRoute: `webauthn`,
+	})
 }
