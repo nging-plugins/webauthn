@@ -60,7 +60,7 @@ var webAuthn = new WebAuthn({
 	},
 	onRegisterSuccess: function (response) {window.location.reload()},
     onLoginSuccess: function (response) {window.location.reload()},
-    onUnbindSuccess: function (response) {window.location.reload()},
+    onUnbindSuccess: function (response) {window.setTimeout(function(){window.location.reload()},1000);},
 	debug:false
 });
 function webAuthnRegister() {
