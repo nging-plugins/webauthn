@@ -212,6 +212,8 @@ github.com/cncf/xds/go v0.0.0-20210312221358-fbca930ec8ed/go.mod h1:eXthEFrGJvWH
 github.com/coreos/go-systemd v0.0.0-20181012123002-c6f51f82210d/go.mod h1:F5haX7vjVVG0kc13fIWeqUViNPyEJxv/OmvnBo0Yme4=
 github.com/coscms/forms v1.12.1 h1:eBaLlNE+rVFShEq2qflMWn0LhtFLTJmrBwGQ/gKYlf4=
 github.com/coscms/forms v1.12.1/go.mod h1:WsTYDKG+4cXt1wBNsqv9hFJ34sdkRHai9n/scu4ap2g=
+github.com/coscms/webauthn v0.2.7 h1:bIPnIgld0sXf7nV79UZp5DGA3NVzDuyPNXHnjU8iFNg=
+github.com/coscms/webauthn v0.2.7/go.mod h1:9gJBL747fn+wJqLJ496caTslWcHwCiqe3d7OWk4Jdy8=
 github.com/creack/pty v1.1.9/go.mod h1:oKZEueFk5CKHvIhNR5MUki03XCEU+Q6VDXinZuGJ33E=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=

@@ -6,8 +6,6 @@ replace github.com/admpub/nging/v5 => ../../admpub/nging
 
 //replace github.com/admpub/webx => ../../admpub/webx
 
-replace github.com/coscms/webauthn => ../../coscms/webauthn
-
 require (
 	github.com/admpub/log v1.3.4
 	github.com/admpub/nging/v5 v5.0.0
