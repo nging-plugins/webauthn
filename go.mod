@@ -14,7 +14,7 @@ require (
 	github.com/go-webauthn/webauthn v0.8.4
 	github.com/webx-top/com v0.9.5
 	github.com/webx-top/db v1.24.3
-	github.com/webx-top/echo v2.36.2+incompatible
+	github.com/webx-top/echo v2.37.0+incompatible
 )
 
 require (

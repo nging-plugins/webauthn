@@ -18,7 +18,7 @@ var Module = module.Module{
 	AssetsPath: []string{},
 	//Navigate: ,
 	Route: func(r *route.Collection) {
-		user.RegisterLogin(r.Backend.Echo()) // 匿名 handler
+		r.Backend.Register(user.RegisterLogin)
 		r.Backend.Register(backend.Register)
 		r.Backend.RegisterToGroup(`/user`, user.RegisterBackend)
 		//r.Frontend.RegisterToGroup(`/user`, customer.RegisterFrontend)
