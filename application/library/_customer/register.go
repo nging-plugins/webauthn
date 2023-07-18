@@ -14,10 +14,10 @@ import (
 
 	"github.com/admpub/nging/v5/application/cmd/bootconfig"
 	"github.com/admpub/nging/v5/application/library/config"
-	"github.com/admpub/webx/application/library/top"
+	"github.com/admpub/webx/application/library/xcommon"
 )
 
-var global = cw.New(handle)
+var global = cw.New(handle, initWebAuthn)
 
 func Init(cfg *webauthn.Config) error {
 	return global.Init(cfg)
@@ -25,8 +25,8 @@ func Init(cfg *webauthn.Config) error {
 
 // init webauthn
 func initWebAuthn(ctx echo.Context) *webauthn.Config {
-	siteURL := top.SiteURL(ctx)
-	if len(backendURL) == 0 {
+	siteURL := xcommon.SiteURL(ctx)
+	if len(siteURL) == 0 {
 		siteURL = `http://localhost:` + param.AsString(config.FromCLI().Port)
 	}
 	icon := siteURL + `/public/assets/backend/images/logo.png`

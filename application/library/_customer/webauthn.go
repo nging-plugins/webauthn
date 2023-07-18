@@ -85,7 +85,7 @@ func (u *CustomerHandle) Register(ctx echo.Context, user webauthn.User, cred *we
 	m := modelCustomer.NewCustomer(ctx)
 	err := m.Get(func(r db.Result) db.Result {
 		return r.Select(`id`, `disabled`)
-	}, `username`, user.WebAuthnName())
+	}, `name`, user.WebAuthnName())
 	if err != nil {
 		return err
 	}

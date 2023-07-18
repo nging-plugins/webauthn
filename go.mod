@@ -8,13 +8,13 @@ replace github.com/admpub/nging/v5 => ../../admpub/nging
 
 require (
 	github.com/admpub/log v1.3.4
-	github.com/admpub/nging/v5 v5.0.0
+	github.com/admpub/nging/v5 v5.1.1
 	github.com/admpub/useragent v0.0.1
 	github.com/coscms/webauthn v0.2.7
 	github.com/go-webauthn/webauthn v0.8.4
 	github.com/webx-top/com v0.9.5
-	github.com/webx-top/db v1.24.3
-	github.com/webx-top/echo v2.37.0+incompatible
+	github.com/webx-top/db v1.24.4
+	github.com/webx-top/echo v2.37.1+incompatible
 )
 
 require (
@@ -110,6 +110,7 @@ require (
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/muesli/smartcrop v0.3.0 // indirect
 	github.com/nfnt/resize v0.0.0-20180221191011-83c6a9932646 // indirect
+	github.com/onsi/gomega v1.27.6 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/power-devops/perfstat v0.0.0-20221212215047-62379fc7944b // indirect
 	github.com/prometheus/client_golang v1.16.0 // indirect
