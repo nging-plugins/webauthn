@@ -4,5 +4,5 @@ import "github.com/webx-top/echo"
 
 func Register(r echo.RouteRegister) {
 	g := r.Group(`/user`)
-	g.Get(`/webauthn`, WebAuthn)
+	g.Route(`POST,GET`, `/webauthn`, WebAuthn)
 }
