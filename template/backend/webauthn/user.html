@@ -104,7 +104,7 @@ $(function(){
     $('#webauthn-table').find('td.editable').each(function(){
         var inputType='text', pk=$(this).data('id');
         $(this).children('span').editable({
-           url: '{{$.URI}}?op=setName',
+           url: BACKEND_URL+'/user/webauthn?op=setName',
            type: inputType,
            pk: pk,
            name: 'name',
