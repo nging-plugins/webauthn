@@ -31,13 +31,11 @@ func initWebAuthn(ctx echo.Context) *webauthn.Config {
 	if len(backendURL) == 0 {
 		backendURL = `http://localhost:` + param.AsString(config.FromCLI().Port)
 	}
-	icon := backendURL + `/public/assets/backend/images/logo.png`
 	u, _ := url.Parse(backendURL)
 	cfg := &webauthn.Config{
 		RPDisplayName: bootconfig.SoftwareName, // Display Name for your site
 		RPID:          com.SplitHost(u.Host),   // Generally the domain name for your site
-		RPOrigin:      backendURL,              // The origin URL for WebAuthn requests
-		RPIcon:        icon,                    // Optional icon URL for your site
+		RPOrigins:     []string{backendURL},    // The origin URL for WebAuthn requests
 	}
 	log.Debugf(`webauthn.Config: %+v`, cfg)
 	return cfg
