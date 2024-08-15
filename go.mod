@@ -2,8 +2,6 @@ module github.com/nging-plugins/webauthn
 
 go 1.22.0
 
-toolchain go1.22.4
-
 replace github.com/admpub/nging/v5 => ../../admpub/nging
 
 //replace github.com/admpub/webx => ../../admpub/webx
@@ -12,7 +10,7 @@ require (
 	github.com/admpub/log v1.3.6
 	github.com/admpub/nging/v5 v5.3.1
 	github.com/admpub/useragent v0.0.2
-	github.com/coscms/webauthn v0.3.0
+	github.com/coscms/webauthn v0.3.1
 	github.com/go-webauthn/webauthn v0.11.1
 	github.com/webx-top/com v1.2.13
 	github.com/webx-top/db v1.27.7
