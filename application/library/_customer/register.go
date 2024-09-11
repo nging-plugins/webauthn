@@ -12,9 +12,9 @@ import (
 	"github.com/webx-top/echo/handler/embed"
 	"github.com/webx-top/echo/param"
 
-	"github.com/admpub/nging/v5/application/cmd/bootconfig"
-	"github.com/admpub/nging/v5/application/library/config"
 	"github.com/admpub/webx/application/library/xcommon"
+	"github.com/coscms/webcore/cmd/bootconfig"
+	"github.com/coscms/webcore/library/config"
 )
 
 var global = cw.New(handle, initWebAuthn)

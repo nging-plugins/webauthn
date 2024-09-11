@@ -8,9 +8,9 @@ import (
 	"github.com/webx-top/echo/code"
 	"github.com/webx-top/echo/param"
 
-	"github.com/admpub/nging/v5/application/handler"
-	"github.com/admpub/nging/v5/application/library/common"
-	"github.com/admpub/nging/v5/application/model"
+	"github.com/coscms/webcore/library/backend"
+	"github.com/coscms/webcore/library/common"
+	"github.com/coscms/webcore/model"
 )
 
 var handlers = echo.HandlerFuncs{
@@ -32,7 +32,7 @@ var checkers = map[string]func(*string) bool{
 
 func setName(ctx echo.Context) error {
 	m := model.NewUserU2F(ctx)
-	user := handler.User(ctx)
+	user := backend.User(ctx)
 	data := ctx.Data()
 	pk, field, value, err := common.GetEditableJSFormData(ctx, checkers)
 	if err != nil {
@@ -56,7 +56,7 @@ func setName(ctx echo.Context) error {
 }
 
 func WebAuthn(ctx echo.Context) error {
-	user := handler.User(ctx)
+	user := backend.User(ctx)
 	if user == nil {
 		return ctx.NewError(code.Unauthenticated, `请先登录`)
 	}
@@ -71,5 +71,5 @@ func WebAuthn(ctx echo.Context) error {
 	ctx.Set(`listData`, m.Objects())
 	ctx.Set(`activeSafeItem`, `webauthn`)
 	ctx.Set(`safeItems`, model.SafeItems.Slice())
-	return ctx.Render(`webauthn/user`, handler.Err(ctx, err))
+	return ctx.Render(`webauthn/user`, common.Err(ctx, err))
 }

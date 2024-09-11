@@ -10,9 +10,9 @@ import (
 	"github.com/webx-top/echo"
 	"github.com/webx-top/echo/code"
 
-	"github.com/admpub/nging/v5/application/dbschema"
-	"github.com/admpub/nging/v5/application/handler"
-	"github.com/admpub/nging/v5/application/model"
+	"github.com/coscms/webcore/dbschema"
+	"github.com/coscms/webcore/library/backend"
+	"github.com/coscms/webcore/model"
 	"github.com/nging-plugins/webauthn/application/library/common"
 )
 
@@ -23,7 +23,7 @@ type UserHandle struct {
 
 func (u *UserHandle) GetUser(ctx echo.Context, username string, opType cw.Type, stage cw.Stage) (webauthn.User, error) {
 	if opType == cw.TypeRegister || opType == cw.TypeUnbind {
-		user := handler.User(ctx)
+		user := backend.User(ctx)
 		if user == nil {
 			return nil, ctx.NewError(code.Unauthenticated, `请先登录`)
 		}

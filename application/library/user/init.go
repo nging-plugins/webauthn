@@ -1,8 +1,8 @@
 package user
 
 import (
-	"github.com/admpub/nging/v5/application/model"
-	"github.com/admpub/nging/v5/application/registry/dashboard"
+	"github.com/coscms/webcore/model"
+	"github.com/coscms/webcore/registry/dashboard"
 )
 
 func init() {
