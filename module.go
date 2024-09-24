@@ -2,7 +2,6 @@ package webauthn
 
 import (
 	"github.com/coscms/webcore/library/module"
-	"github.com/coscms/webcore/library/route"
 
 	"github.com/nging-plugins/webauthn/application/handler/backend"
 	//"github.com/nging-plugins/webauthn/application/library/customer"
@@ -17,10 +16,10 @@ var Module = module.Module{
 	},
 	AssetsPath: []string{},
 	//Navigate: ,
-	Route: func(r *route.Collection) {
-		r.Backend.Register(user.RegisterLogin)
-		r.Backend.Register(backend.Register)
-		r.Backend.RegisterToGroup(`/user`, user.RegisterBackend)
+	Route: func(r module.Router) {
+		r.Backend().Register(user.RegisterLogin)
+		r.Backend().Register(backend.Register)
+		r.Backend().RegisterToGroup(`/user`, user.RegisterBackend)
 		//r.Frontend.RegisterToGroup(`/user`, customer.RegisterFrontend)
 		//r.Frontend.Register(customer.RegisterLogin)
 	},
