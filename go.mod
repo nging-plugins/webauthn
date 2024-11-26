@@ -2,8 +2,6 @@ module github.com/nging-plugins/webauthn
 
 go 1.23
 
-toolchain go1.23.0
-
 // replace github.com/coscms/webcore => ../../coscms/webcore
 
 //replace github.com/admpub/webx => ../../admpub/webx
@@ -12,11 +10,11 @@ require (
 	github.com/admpub/log v1.3.6
 	github.com/admpub/useragent v0.0.2
 	github.com/coscms/webauthn v0.3.1
-	github.com/coscms/webcore v0.4.0
+	github.com/coscms/webcore v0.6.13
 	github.com/go-webauthn/webauthn v0.11.1
-	github.com/webx-top/com v1.3.17
-	github.com/webx-top/db v1.28.0
-	github.com/webx-top/echo v1.12.7
+	github.com/webx-top/com v1.3.19
+	github.com/webx-top/db v1.28.1
+	github.com/webx-top/echo v1.13.3
 )
 
 require (
@@ -27,6 +25,7 @@ require (
 	github.com/admpub/checksum v1.1.0 // indirect
 	github.com/admpub/color v1.8.1 // indirect
 	github.com/admpub/confl v0.2.4 // indirect
+	github.com/admpub/copier v0.1.1 // indirect
 	github.com/admpub/cron v0.1.1 // indirect
 	github.com/admpub/decimal v1.3.1 // indirect
 	github.com/admpub/email v2.4.1+incompatible // indirect
@@ -36,6 +35,7 @@ require (
 	github.com/admpub/fsnotify v1.7.0 // indirect
 	github.com/admpub/gifresize v1.0.2 // indirect
 	github.com/admpub/go-bindata-assetfs v0.0.0-20170428090253-36eaa4c19588 // indirect
+	github.com/admpub/go-captcha/v2 v2.0.4 // indirect
 	github.com/admpub/go-download/v2 v2.1.15 // indirect
 	github.com/admpub/go-isatty v0.0.11 // indirect
 	github.com/admpub/go-password v0.1.3 // indirect
@@ -54,6 +54,7 @@ require (
 	github.com/admpub/license_gen v0.1.1 // indirect
 	github.com/admpub/mahonia v0.0.0-20151019004008-c528b747d92d // indirect
 	github.com/admpub/mail v0.0.0-20170408110349-d63147b0317b // indirect
+	github.com/admpub/map2struct v0.1.3 // indirect
 	github.com/admpub/marmot v0.0.0-20200702042226-2170d9ff59f5 // indirect
 	github.com/admpub/mysql-schema-sync v0.2.6 // indirect
 	github.com/admpub/null v8.0.4+incompatible // indirect
@@ -67,7 +68,7 @@ require (
 	github.com/admpub/safesvg v0.0.8 // indirect
 	github.com/admpub/securecookie v1.3.0 // indirect
 	github.com/admpub/service v0.0.5 // indirect
-	github.com/admpub/sessions v0.2.1 // indirect
+	github.com/admpub/sessions v0.2.3 // indirect
 	github.com/admpub/sonyflake v0.0.1 // indirect
 	github.com/admpub/tail v1.1.1 // indirect
 	github.com/admpub/timeago v1.2.2 // indirect
@@ -76,17 +77,18 @@ require (
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/boombuler/barcode v1.0.2 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
-	github.com/coscms/forms v1.12.2 // indirect
+	github.com/coscms/captcha v0.1.2 // indirect
+	github.com/coscms/forms v1.13.7 // indirect
 	github.com/dsoprea/go-logging v0.0.0-20200710184922-b02d349568dd // indirect
 	github.com/fcjr/aia-transport-go v1.2.2 // indirect
 	github.com/francoispqt/gojay v1.2.13 // indirect
 	github.com/friendsofgo/errors v0.9.2 // indirect
 	github.com/fxamacker/cbor/v2 v2.7.0 // indirect
-	github.com/gabriel-vasile/mimetype v1.4.6 // indirect
+	github.com/gabriel-vasile/mimetype v1.4.7 // indirect
 	github.com/go-errors/errors v1.5.1 // indirect
 	github.com/go-playground/locales v0.14.1 // indirect
 	github.com/go-playground/universal-translator v0.18.1 // indirect
-	github.com/go-playground/validator/v10 v10.22.1 // indirect
+	github.com/go-playground/validator/v10 v10.23.0 // indirect
 	github.com/go-sql-driver/mysql v1.8.1 // indirect
 	github.com/go-webauthn/x v0.1.13 // indirect
 	github.com/goccy/go-json v0.10.3 // indirect
@@ -140,16 +142,17 @@ require (
 	github.com/webx-top/tagfast v0.0.1 // indirect
 	github.com/webx-top/validation v0.0.3 // indirect
 	github.com/webx-top/validator v0.3.0 // indirect
+	github.com/wenlng/go-captcha-assets v1.0.1 // indirect
 	github.com/x448/float16 v0.8.4 // indirect
 	golang.org/x/crypto v0.29.0 // indirect
-	golang.org/x/image v0.21.0 // indirect
+	golang.org/x/image v0.22.0 // indirect
 	golang.org/x/net v0.31.0 // indirect
-	golang.org/x/oauth2 v0.23.0 // indirect
+	golang.org/x/oauth2 v0.24.0 // indirect
 	golang.org/x/sync v0.9.0 // indirect
 	golang.org/x/sys v0.27.0 // indirect
 	golang.org/x/text v0.20.0 // indirect
 	golang.org/x/xerrors v0.0.0-20240903120638-7835f813f4da // indirect
-	google.golang.org/protobuf v1.35.1 // indirect
+	google.golang.org/protobuf v1.35.2 // indirect
 	gopkg.in/tomb.v1 v1.0.0-20141024135613-dd632973f1e7 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	rsc.io/qr v0.2.0 // indirect

@@ -15,7 +15,7 @@ import (
 	"github.com/coscms/webcore/cmd/bootconfig"
 	"github.com/coscms/webcore/library/common"
 	"github.com/coscms/webcore/library/config"
-	"github.com/coscms/webcore/registry/route"
+	"github.com/coscms/webcore/library/httpserver"
 )
 
 var global = cw.New(handle, initWebAuthn)
@@ -43,7 +43,7 @@ func initWebAuthn(ctx echo.Context) *webauthn.Config {
 
 func RegisterBackend(r echo.RouteRegister) {
 	g := r.Group(`/webauthn`)
-	route.SetGroupMetaPermissionPublic(g) // 登录用户 group
+	httpserver.SetGroupMetaPermissionPublic(g) // 登录用户 group
 	global.RegisterRoute(r)
 	fs := embed.NewFileSystems()
 	fs.Register(static.JS)
@@ -52,7 +52,7 @@ func RegisterBackend(r echo.RouteRegister) {
 
 func RegisterLogin(r echo.RouteRegister) {
 	g := r.Group(`/webauthn`)
-	route.SetGroupMetaPermissionGuest(g) // 匿名 group
+	httpserver.SetGroupMetaPermissionGuest(g) // 匿名 group
 	global.RegisterRouteForLogin(r)
 	fs := embed.NewFileSystems()
 	fs.Register(static.JS)
